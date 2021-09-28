@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import millify from 'millify';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Input } from 'antd';
+import { Card, Row, Col, Input, Spin } from 'antd';
 
 import { useGetCryptosQuery } from '../Services/CryptoApi';
 
 const Cryptocurrencies = ({ simplified }) => {
     const count = simplified ? 10 : 100;
-    const { data: cryptosList, isFeching } = useGetCryptosQuery(count);
+    const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
 
     const [cryptos, setCryptos] = useState(cryptosList?.data?.coins);
 
@@ -19,7 +19,7 @@ const Cryptocurrencies = ({ simplified }) => {
         setCryptos(filtereredData);
     }, [cryptosList, searchTerm]);
 
-    if (isFeching) return "Loading ...";
+    if (isFetching) return <div className="spinner"> <Spin /> </div>;
 
     return (
         <div>
