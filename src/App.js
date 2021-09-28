@@ -16,28 +16,37 @@ const App = () => {
                     <div className="routes">
                         <Switch>
                             <Route exact path="/">
-                                <Homepage/>
+                                <Homepage />
                             </Route>
                             <Route exact path="/exchanges">
-                                <Exchanges/>
+                                <Exchanges />
                             </Route>
                             <Route exact path="/cryptocurrencies">
-                                <Cryptocurrencies/>
+                                <Cryptocurrencies />
                             </Route>
                             <Route exact path="/crypto/:coinId">
-                                <CryptoDetails/>
+                                <CryptoDetails />
                             </Route>
                             <Route exact path="/news">
-                                <News/>
+                                <News />
                             </Route>
                         </Switch>
                     </div>
                 </Layout>
+
+                <div className="footer">
+                    <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
+                        Cryoptoverse <br />
+                        All rights reserved
+                    </Typography.Title>
+                    <Space>
+                        <Link to="/">Home</Link>
+                        <Link to="/exchanges">Exchanges</Link>
+                        <Link to="/news">News</Link>
+                    </Space>
+                </div>
             </div>
 
-            <div className="footer">
-
-            </div>
         </div>
     );
 }
